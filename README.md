@@ -104,25 +104,37 @@ df2
 # Encoding Data.csv
 
 ![output](/a.png)
+
 ![output](/b.png)
+
 ![output](/c.png)
+
 ![output](/d.png)
+
 ![output](/e.png)
 
 # Data.csv
 
 ![output](/f.png)
+
 ![output](/g.png)
+
 ![output](/h.png)
+
 ![output](/i.png)
+
 ![output](/j.png)
+
 ![output](/k.png)
+
 ![output](/l.png)
 
 # titanic_dataset.csv
 
 ![output](/m.png)
+
 ![output](/n.png)
+
 ![output](/o.png)
 
 # Result:
