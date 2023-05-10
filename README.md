@@ -32,228 +32,98 @@ Save the data to the file
 
 ```python
 import pandas as pd
-df=pd.read_csv("data.csv")
-print(df)
-import category_encoders as ce
-be=ce.BinaryEncoder()
-df1=be.fit_transform(df["bin_1"])
-df["bin_1"] = be.fit_transform(df["bin_1"])
-df1
-be=ce.BinaryEncoder()
-df2=be.fit_transform(df["bin_2"])
-df["bin_2"] = be.fit_transform(df["bin_2"])
-df2
-df1=df.copy()
-from sklearn.preprocessing import LabelEncoder,OrdinalEncoder,OneHotEncoder
-import category_encoders as ce
-be=ce.BinaryEncoder()
-ohe=OneHotEncoder(sparse=False)
-le=LabelEncoder()
-oe=OrdinalEncoder()
-df1["City"] = ohe.fit_transform(df1[["City"]])
-temp=['Cold','Warm','Hot','Very Hot']
-oe1=OrdinalEncoder(categories=[temp])
-df1['Ord_1'] = oe1.fit_transform(df1[["Ord_1"]])
-edu=['High School','Diploma','Bachelors','Masters','PhD']
-oe2=OrdinalEncoder(categories=[edu])
-df1['Ord_2']= oe2.fit_transform(df1[["Ord_2"]])
-df1
-## SCALING:
-from sklearn.preprocessing import MinMaxScaler
-sc=MinMaxScaler()
-df2=pd.DataFrame(sc.fit_transform(df1),columns=(['id', 'bin_1', 'bin_2', 'City', 'Ord_1','Ord_2','Target']))
-df2
-from sklearn.preprocessing import StandardScaler
-sc1=StandardScaler()
-df3=pd.DataFrame(sc1.fit_transform(df1),columns=['id', 'bin_1', 'bin_2', 'City', 'Ord_1','Ord_2','Target'])
-df3
-from sklearn.preprocessing import MaxAbsScaler
-sc2=MaxAbsScaler()
-df4=pd.DataFrame(sc2.fit_transform(df1),columns=['id', 'bin_1', 'bin_2', 'City', 'Ord_1','Ord_2','Target'])
-df4
-from sklearn.preprocessing import RobustScaler
-sc3=RobustScaler()
-df5=pd.DataFrame(sc3.fit_transform(df1),columns=['id', 'bin_1', 'bin_2', 'City', 'Ord_1','Ord_2','Target'])
-df5
-
+df=pd.read_csv('Encoding Data.csv')
+df.head()
+df['ord_2'].unique()
+from sklearn.preprocessing import LabelEncoder,OrdinalEncoder
+climate = ['Cold','Warm','Hot']
+en= OrdinalEncoder(categories = [climate])
+df['ord_2']=en.fit_transform(df[["ord_2"]])
+df
+le = LabelEncoder()
+df['Nom_0'] = le.fit_transform(df[["nom_0"]])
+df
+!pip install --upgrade category_encoders
+from category_encoders import BinaryEncoder
+be = BinaryEncoder()
+data = be.fit_transform(df['bin_1'])
+df  = pd.concat([df,data],axis=1)
+df
+be = BinaryEncoder()
+data = be.fit_transform(df['bin_2'])
+df  = pd.concat([df,data],axis=1)
+df
 ```
 
 ## Encoding data:
 
 ```python
-import pandas as pd
-df=pd.read_csv("Encoding Data.csv")
-df
-## GENERATION
-import category_encoders as ce
-be=ce.BinaryEncoder()
-ndf=be.fit_transform(df["bin_1"])
-df["bin_1"] = be.fit_transform(df["bin_1"])
-ndf
-be=ce.BinaryEncoder()
-ndf2=be.fit_transform(df["bin_2"])
-df["bin_2"] = be.fit_transform(df["bin_2"])
-ndf2
-df1=df.copy()
-from sklearn.preprocessing import LabelEncoder,OrdinalEncoder
-le=LabelEncoder()
-oe=OrdinalEncoder()
-df1["nom_0"] = oe.fit_transform(df1[["nom_0"]])
-temp=['Cold','Warm','Hot']
-oe2=OrdinalEncoder(categories=[temp])
-df1['ord_2'] = oe2.fit_transform(df1[['ord_2']])
+df1 = pd.read_csv("data.csv")
+df1.head()
+df1['Ord_1'].unique()
+climate = ['Cold','Warm','Hot','Very Hot']
+en= OrdinalEncoder(categories = [climate])
+df1['Ord_1']=en.fit_transform(df1[["Ord_1"]])
 df1
-## SCALING:
-from sklearn.preprocessing import MinMaxScaler
-sc=MinMaxScaler()
-df0=pd.DataFrame(sc.fit_transform(df1),columns=['id', 'bin_1', 'bin_2', 'nom_0','ord_2'])
-df0
-from sklearn.preprocessing import StandardScaler
-sc1=StandardScaler()
-df2=pd.DataFrame(sc1.fit_transform(df1),columns=['id', 'bin_1', 'bin_2', 'nom_0','ord_2'])
-df2
-from sklearn.preprocessing import MaxAbsScaler
-sc2=MaxAbsScaler()
-df3=pd.DataFrame(sc2.fit_transform(df1),columns=['id', 'bin_1', 'bin_2', 'nom_0','ord_2'])
-df3
-from sklearn.preprocessing import RobustScaler
-sc3=RobustScaler()
-df4=pd.DataFrame(sc3.fit_transform(df1),columns=['id', 'bin_1', 'bin_2', 'nom_0','ord_2'])
-df4
-
+df1['Ord_2'].unique()
+cl = ['High School','Diploma','Bachelors','Masters','PhD']
+en= OrdinalEncoder(categories = [cl])
+df1['Ord_2']=en.fit_transform(df1[["Ord_2"]])
+df1
+le = LabelEncoder()
+df1['City'] = le.fit_transform(df1[["City"]])
+df1
+from category_encoders import BinaryEncoder
+be = BinaryEncoder()
+dat = be.fit_transform(df1['bin_1'])
+df1  = pd.concat([df1,dat],axis=1)
+df1
+from category_encoders import BinaryEncoder
+be = BinaryEncoder()
+data1 = be.fit_transform(df1['bin_2'])
+df1  = pd.concat([df1,data1],axis=1)
+df1
 
 ```
 
 ## Titanic Dataset:
 
 ```python
-import pandas as pd
-df=pd.read_csv("titanic_dataset.csv")
-df
-df.drop("Name",axis=1,inplace=True)
-df.drop("Ticket",axis=1,inplace=True)
-df.drop("Cabin",axis=1,inplace=True)
-df.isnull().sum()
-
-df["Age"]=df["Age"].fillna(df["Age"].median())
-df["Embarked"]=df["Embarked"].fillna(df["Embarked"].mode()[0])
-df.isnull().sum()
-df
-## ENCODING
-import category_encoders as ce
-be=ce.BinaryEncoder()
-ndf=be.fit_transform(df['Sex'])
-ndf
-df1=df.copy()
-from sklearn.preprocessing import LabelEncoder, OrdinalEncoder
-embark=['S','C','Q']
-e1=OrdinalEncoder(categories=[embark])
-df1['Embarked'] = e1.fit_transform(df[['Embarked']])
-df1
-
-## SCALING
-from sklearn.preprocessing import MinMaxScaler
-sc=MinMaxScaler()
-df0=pd.DataFrame(sc.fit_transform(df1),columns=['PassengerId', 'Survived', 'Pclass', 'Sex','Age','SibSp','Parch','Fare','Embarked'])
-df0
-from sklearn.preprocessing import StandardScaler
-sc1=StandardScaler()
-df2=pd.DataFrame(sc1.fit_transform(df1),columns=['PassengerId', 'Survived', 'Pclass', 'Sex','Age','SibSp','Parch','Fare','Embarked'])
+df2 = pd.read_csv("titanic_dataset.csv")
+df2.head()
+be = BinaryEncoder()
+data2 = be.fit_transform(df2['Sex'])
+df2  = pd.concat([df2,data2],axis=1)
 df2
-from sklearn.preprocessing import MaxAbsScaler
-sc2=MaxAbsScaler()
-df3=pd.DataFrame(sc2.fit_transform(df1),columns=['PassengerId', 'Survived', 'Pclass', 'Sex','Age','SibSp','Parch','Fare','Embarked'])
-df3
-from sklearn.preprocessing import RobustScaler
-sc3=RobustScaler()
-df4=pd.DataFrame(sc3.fit_transform(df1),columns=['PassengerId', 'Survived', 'Pclass', 'Sex','Age','SibSp','Parch','Fare','Embarked'])
-df4
-
-
-
+df2 = pd.get_dummies(df2, prefix=['Embarked'] ,columns=['Embarked'])
+df2
 ```
 
 # OUTPUT:
 
-## (i) Data.csv
+# Encoding Data.csv
 
-![](./ot1.jpg)
+![output](/a.png)
+![output](/b.png)
+![output](/c.png)
+![output](/d.png)
+![output](/e.png)
 
-![](./ot2.jpg)
+# Data.csv
 
-![](./ot3.jpg)
+![output](/f.png)
+![output](/g.png)
+![output](/h.png)
+![output](/i.png)
+![output](/j.png)
+![output](/k.png)
+![output](/l.png)
 
-![](./ot4.jpg)
+# titanic_dataset.csv
 
-### Minmax scaling:
-
-![](./ot5.jpg)
-
-### Standard scaling:
-
-![](./ot6.jpg)
-
-### Maxabs scaling:
-
-![](./ot7.jpg)
-
-### Robust scaling:
-
-![](./ot8.jpg)
-
-## (ii) Encoding data.csv
-
-![](./e01.jpg)
-
-![](./eot2.jpg)
-
-![](./eot3.jpg)
-
-### Minmax scaler:
-
-![](./eot4.jpg)
-
-### Standard scaler:
-
-![](./eot5.jpg)
-
-### Maxabs scaler:
-
-![](./eot6.jpg)
-
-### Robust scaler:
-
-![](./eot7.jpg)
-
-## ( iii) Titanic dataset.csv:
-
-![](./to1.jpg)
-
-### Removing null values:
-
-![](./to2.jpg)
-![](./to3.jpg)
-
-### Encoding:
-
-![](./to4.jpg)
-![](./to5.jpg)
-
-### Minmax scaler:
-
-![](./to6.jpg)
-
-### Standard scaler:
-
-![](./to7.jpg)
-
-### Maxabs scaler:
-
-![](./to8.jpg)
-
-### Robust scaler:
-
-![](./to9.jpg)
+![output](/m.png)
+![output](/n.png)
+![output](/o.png)
 
 # Result:
 
