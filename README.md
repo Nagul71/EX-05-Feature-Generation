@@ -103,39 +103,35 @@ df2
 
 # Encoding Data.csv
 
-![output](/a.png)
+![Screenshot 2023-05-29 222952](https://github.com/Nagul71/EX-05-Feature-Generation/assets/118661118/2fb083de-58ab-4f61-a077-cf3edc1c11e4)
 
-![output](/b.png)
+![Screenshot 2023-05-29 223010](https://github.com/Nagul71/EX-05-Feature-Generation/assets/118661118/06af4c6c-362d-4847-9bca-8e9e1cebacdd)
 
-![output](/c.png)
+![Screenshot 2023-05-29 223015](https://github.com/Nagul71/EX-05-Feature-Generation/assets/118661118/b0f6cf80-0a9c-410f-8b50-caafa943adc3)
 
-![output](/d.png)
+![Screenshot 2023-05-29 223021](https://github.com/Nagul71/EX-05-Feature-Generation/assets/118661118/aa6654f2-c836-4399-b0dd-7c61f728a436)
 
-![output](/e.png)
+![Screenshot 2023-05-29 223036](https://github.com/Nagul71/EX-05-Feature-Generation/assets/118661118/5abbaec5-673a-4403-8286-a5b45200cb83)
+
+
+
 
 # Data.csv
+![Screenshot 2023-05-29 223043](https://github.com/Nagul71/EX-05-Feature-Generation/assets/118661118/c49f7143-b954-42f7-a79c-01e32ed3ba5b)
+![Screenshot 2023-05-29 223049](https://github.com/Nagul71/EX-05-Feature-Generation/assets/118661118/20edf401-4869-4e84-8d11-840125b80ae7)
+![Screenshot 2023-05-29 223056](https://github.com/Nagul71/EX-05-Feature-Generation/assets/118661118/70255e27-626d-4904-9b41-2fbae9497974)
 
-![output](/f.png)
+![Screenshot 2023-05-29 223102](https://github.com/Nagul71/EX-05-Feature-Generation/assets/118661118/0d1d7b5d-b384-46c7-abd5-7aa6f0c247f1)
+![Screenshot 2023-05-29 223112](https://github.com/Nagul71/EX-05-Feature-Generation/assets/118661118/c4f33653-80a5-4630-98aa-23c3a45f4ac4)
+![Screenshot 2023-05-29 223119](https://github.com/Nagul71/EX-05-Feature-Generation/assets/118661118/2f9aa3a7-235c-41c7-a4c4-a3473b649a25)
+![Screenshot 2023-05-29 223125](https://github.com/Nagul71/EX-05-Feature-Generation/assets/118661118/bd4b4e52-3cee-459a-9549-61f5c614a58b)
 
-![output](/g.png)
-
-![output](/h.png)
-
-![output](/i.png)
-
-![output](/j.png)
-
-![output](/k.png)
-
-![output](/l.png)
 
 # titanic_dataset.csv
+![Screenshot 2023-05-29 223134](https://github.com/Nagul71/EX-05-Feature-Generation/assets/118661118/8b243f03-040f-4c66-8d18-b886dc3de50f)
+![Screenshot 2023-05-29 223147](https://github.com/Nagul71/EX-05-Feature-Generation/assets/118661118/fdea3edc-84da-4650-bb60-cf20e62e305f)
+![Screenshot 2023-05-29 223202](https://github.com/Nagul71/EX-05-Feature-Generation/assets/118661118/3ab098c5-72e9-46c4-b84e-f9b1bd47cf4c)
 
-![output](/m.png)
-
-![output](/n.png)
-
-![output](/o.png)
 
 # Result:
 
